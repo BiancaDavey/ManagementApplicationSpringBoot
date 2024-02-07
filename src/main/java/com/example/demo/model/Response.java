@@ -22,8 +22,8 @@ public class Response {
     protected String detailedMessage;
     protected Map<?, ?> data;
 
-    //  TODO: constructor as builder not working???
-    //  TODO: clean up message- appears 3 times.
+    //  TODO: Annotations retest: if SuperBuilder, Constructor may not be needed.
+    //  TODO: clean up messages if not used (1 used not 3).
     // /*
     public Response(LocalDateTime timeStamp, int statusCode, HttpStatus status, String errorMessage, String successMessage, String detailedMessage, Map<?, ?> data){
         this.timeStamp = timeStamp;

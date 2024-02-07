@@ -13,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 import static com.example.demo.enumeration.Status.SERVER_UP;
 import static java.time.LocalTime.now;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -28,8 +30,7 @@ import com.example.demo.model.Server;
 public class ServerResource {
     private final ServerServiceImplementation serverServiceImplementation;
 
-    //  TODO: added in, didn't work with annotations.
-
+    //  TODO: Annotations retest.
     public ServerResource(ServerServiceImplementation serverServiceImplementation) {
         this.serverServiceImplementation = serverServiceImplementation;
     }
@@ -37,9 +38,13 @@ public class ServerResource {
     //  Get servers with limit.
     //  GetMapping - GET request to http://localhost:8080/server/serverList.
     @GetMapping("/serverList")
-    public ResponseEntity<Response> getServers() {
+    public ResponseEntity<Response> getServers() { //  throws InterruptedException
+        //  Note: Test to view LOADING STATE. Add InterruptedException to function to test.
+        //TimeUnit.SECONDS.sleep(2);
+        //  Note: Test to view ERROR STATE. Comment out rest of function to test.
+        //throw new InterruptedException("Example error message.");
 
-        //  TODO: trying new object.
+        //  TODO: Annotations retest - builder alternative working.
         LocalDateTime timeStamp = LocalDateTime.now();
         Map<?, ?> data = Map.of("servers", serverServiceImplementation.serverList(30));
         String message = "Servers retrieved.";
@@ -47,7 +52,7 @@ public class ServerResource {
         int statusCode = OK.value();
         return ResponseEntity.ok(new Response(timeStamp, statusCode, status, message, message, message, data));
 
-        //  TODO: error with SuperBuilder in Response.java. Original.
+        //  TODO: Annotations retest - error with SuperBuilder in Response.java.
         /*
         return ResponseEntity.ok(
                 Response.builder
@@ -68,7 +73,7 @@ public class ServerResource {
     public ResponseEntity<Response> pingServer(@PathVariable("serverIPAddress") String serverIPAddress) throws IOException {
         Server server = serverServiceImplementation.ping(serverIPAddress);
 
-        //  TODO: trying new object.
+        //  TODO: Annotations retest - builder alternative working.
         LocalDateTime timeStamp = LocalDateTime.now();
         Map<?, ?> data = Map.of("server", server);
         String message = "Called ping function.";
@@ -83,7 +88,7 @@ public class ServerResource {
         int statusCode = OK.value();
         return ResponseEntity.ok(new Response(timeStamp, statusCode, status, message, message, message, data));
 
-        //  TODO original.
+        //  TODO: Annotations retest - error with SuperBuilder in Response.java.
         /*
         return ResponseEntity.ok(
                 Response.builder
@@ -102,7 +107,7 @@ public class ServerResource {
     @PostMapping("/save")
     public ResponseEntity<Response> saveServer(@RequestBody @Valid Server server) {
 
-        //  TODO: trying new object.
+        //  TODO: Annotations retest - builder alternative working.
         LocalDateTime timeStamp = LocalDateTime.now();
         Map<?, ?> data = Map.of("server", serverServiceImplementation.create(server));
         String message = "Server created.";
@@ -110,7 +115,7 @@ public class ServerResource {
         int statusCode = CREATED.value();
         return ResponseEntity.ok(new Response(timeStamp, statusCode, status, message, message, message, data));
 
-        //  TODO: original.
+        //  TODO: Annotations retest - error with SuperBuilder in Response.java.
         /*
         return ResponseEntity.ok(
                 Response.builder
@@ -129,7 +134,7 @@ public class ServerResource {
     @GetMapping("/get/{serverID}")
     public ResponseEntity<Response> getServer(@PathVariable("serverID") Long serverID) {
 
-        //  TODO: trying new object.
+        //  TODO: Annotations retest - builder alternative working.
         LocalDateTime timeStamp = LocalDateTime.now();
         Map<?, ?> data = Map.of("server", serverServiceImplementation.get(serverID));
         String message = "Server retrieved.";
@@ -137,7 +142,7 @@ public class ServerResource {
         int statusCode = OK.value();
         return ResponseEntity.ok(new Response(timeStamp, statusCode, status, message, message, message, data));
 
-        //  TODO original
+        //  TODO: Annotations retest - error with SuperBuilder in Response.java.
         /*
         return ResponseEntity.ok(
                 Response.builder
@@ -156,7 +161,7 @@ public class ServerResource {
     @DeleteMapping("/delete/{serverID}")
     public ResponseEntity<Response> deleteServer(@PathVariable("serverID") Long serverID) {
 
-        //  TODO: trying new object.
+        //  TODO: Annotations retest - builder alternative working.
         LocalDateTime timeStamp = LocalDateTime.now();
         Map<?, ?> data = Map.of("deleted", serverServiceImplementation.delete(serverID));
         String message = "Server deleted.";
@@ -164,8 +169,7 @@ public class ServerResource {
         int statusCode = OK.value();
         return ResponseEntity.ok(new Response(timeStamp, statusCode, status, message, message, message, data));
 
-
-        //  TODO: original
+        //  TODO: Annotations retest - error with SuperBuilder in Response.java.
         /*
         return ResponseEntity.ok(
                 Response.builder
@@ -181,8 +185,7 @@ public class ServerResource {
 
     //  Get image for the server.
     //  GetMapping - GET request to http://localhost:8080/server/image/{fileName}.
-    //  TODO: currently finds image in local downloads folder. Doesn't work. Maybe Windows vs Linux.
-    //  TODO: issue- use Postman, POST request, leave out- should assign automatically but it's null.
+    //  TODO: doesn't work: Check Windows vs. Linux paths- should find local downloads/images folder. Check random assignment.
     @GetMapping(path="/server/image/{fileName}", produces = IMAGE_PNG_VALUE)
     public byte[] getServerImage(@PathVariable("fileName") String fileName) throws IOException {
         System.out.println("Get server image");

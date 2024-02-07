@@ -21,7 +21,7 @@ public class Server {
     @Id
     @GeneratedValue(strategy=AUTO)
     private Long serverId;
-    //  Constraint on serverIPAddress: must be filled in.
+    //  Constraint on serverIPAddress- must be filled in.
     @Column(unique=true)
     @NotEmpty(message="IP Address cannot be empty.")
     private String serverIPAddress;
@@ -31,7 +31,8 @@ public class Server {
     private String serverImageUrl;
     private Status serverStatus;
 
-    //  TODO: constructor, didn't recognise without it in ManagementSystemApplication.java.
+    //  TODO: Annotations retest: if AllArgsConstructor, Constructor may not be needed (for ManagementSystemApplication.java.)
+    //  TODO: Servers return status and statusCode in HttpRequest only. DB has only status.
     public Server(Long serverId, String serverIPAddress, String serverName, String serverMemory, String serverType, String serverImageUrl, Status serverStatus){
         this.serverId = serverId;
         this.serverIPAddress = serverIPAddress;
@@ -42,13 +43,13 @@ public class Server {
         this.serverStatus = serverStatus;
     }
 
-    //  TODO: below, intelliJ suggested add-in to make ServerServiceImplementation.java work.
+    //  TODO: Annotations retest - IntelliJ suggested add-in to make ServerServiceImplementation.java work.
     public void setServerImageUrl(String s) {
     }
     public void setStatus(Status status) {
     }
     
-    //  TODO: ServerResource.java needs it to call status method.
+    //  TODO: Annotations retest - ServerResource.java needs it to call status method.
     public String getStatus(){
         return this.serverStatus.getStatus();
     }
