@@ -1,11 +1,11 @@
 package com.example.demo;
 
-import com.example.demo.enumeration.SiteStatus;
+import com.example.demo.enumeration.ClientStatus;
+import com.example.demo.model.Client;
 import com.example.demo.model.Server;
 import com.example.demo.enumeration.Status;
-import com.example.demo.model.Site;
+import com.example.demo.repo.ClientRepo;
 import com.example.demo.repo.ServerRepo;
-import com.example.demo.repo.SiteRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +24,7 @@ public class ManagementSystemApplication {
 
 	//  Run code for management application after application is initialised.
 	//  Note: servers are example servers, for testing.
-	///*
+	/*
 	@Bean
 	CommandLineRunner run(ServerRepo serverRepo){
 		return args -> {
@@ -38,24 +38,22 @@ public class ManagementSystemApplication {
 					"Mail Server", "http://localhost:8080/server/image/server4.png", Status.SERVER_DOWN));
 		};
 	}
-	//*/
+	*/
 
-	//  TODO: Site manager if using.
-	/*
+	//  Run code for client management application with examples.
+	///*
 	@Bean
-	CommandLineRunner run(SiteRepo siteRepo){
+	CommandLineRunner run(ClientRepo clientRepo){
 		return args -> {
-			siteRepo.save(new Site(null, "https://google.com", "ExampleSite1Google",
-					"Main", "http://localhost:8080/site/image/site1.png", SiteStatus.SITE_UP));
-			siteRepo.save(new Site(null, "https://yahoo.com", "ExampleSite2Yahoo",
-					"Main", "http://localhost:8080/site/image/site2.png", SiteStatus.SITE_DOWN));
-			siteRepo.save(new Site(null, "https://www.nationalgeographic.com/", "ExampleSite3NationalGeographic",
-					"Interest", "http://localhost:8080/site/image/site3.png", SiteStatus.SITE_UP));
-			siteRepo.save(new Site(null, "https://biancamdaveyportfolio.wordpress.com/", "ExampleSite4Wordpress",
-					"Portfolio", "http://localhost:8080/site/image/site4.png", SiteStatus.SITE_DOWN));
+			clientRepo.save(new Client(null, "John1", "Smith1", "Google",
+					"https://google.com", "johnsmith@gmail.com", "44", "7755666888", ClientStatus.ACTIVE));
+			clientRepo.save(new Client(null, "John2", "Smith2", "Apple",
+					"https://apple.com", "johnsmith@gmail.com", "44", "7755666888", ClientStatus.INACTIVE));
+			clientRepo.save(new Client(null, "John3", "Smith3", "IMB",
+					"https://imb.com", "johnsmith@gmail.com", "44", "7755666888", ClientStatus.ACTIVE));
 		};
 	}
-	*/
+	//*/
 
 	//  CorsError: backend must specify frontend can access it, else error as the two applications are on different domains.
 	@Bean
