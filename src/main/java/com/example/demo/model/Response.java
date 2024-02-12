@@ -9,7 +9,6 @@ import java.util.Map;
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 //  Return response to user every time a request is made to the application, for consistency across application.
-
 @Data
 // @SuperBuilder
 @JsonInclude(NON_NULL)

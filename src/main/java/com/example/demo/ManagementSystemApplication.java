@@ -22,7 +22,7 @@ public class ManagementSystemApplication {
 		SpringApplication.run(ManagementSystemApplication.class, args);
 	}
 
-	//  Run code for servers after application is initialised.
+	//  Run code for management application after application is initialised.
 	//  Note: servers are example servers, for testing.
 	///*
 	@Bean

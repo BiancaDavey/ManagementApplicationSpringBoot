@@ -27,7 +27,7 @@ import static java.lang.Boolean.TRUE;
 public class ServerServiceImplementation implements ServerService {
     private final ServerRepo serverRepo;
 
-    //  TODO: added in. Annotation didn't replace constructor.
+    //  TODO: added in.
     public ServerServiceImplementation(ServerRepo serverRepo) {
         this.serverRepo = serverRepo;
     }
@@ -37,7 +37,6 @@ public class ServerServiceImplementation implements ServerService {
         System.out.println("Saving new server: " + server.getClass().getName());
         // log.info("Saving new server: {}", server.getName());
         //  Call function to set image url for the server.
-        // TODO: error without Server.java method added in.
         server.setServerImageUrl(setServerImageUrl());
         //  Save server in the database.
         return serverRepo.save(server);

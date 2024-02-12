@@ -22,8 +22,7 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 import com.example.demo.model.Server;
 
-//  Controller.
-
+//  Using RestController.
 @RestController
 @RequestMapping("/server")
 //@RequiredArgsConstructor
@@ -38,12 +37,7 @@ public class ServerResource {
     //  Get servers with limit.
     //  GetMapping - GET request to http://localhost:8080/server/serverList.
     @GetMapping("/serverList")
-    public ResponseEntity<Response> getServers() { //  throws InterruptedException
-        //  Note: Test to view LOADING STATE. Add InterruptedException to function to test.
-        //TimeUnit.SECONDS.sleep(2);
-        //  Note: Test to view ERROR STATE. Comment out rest of function to test.
-        //throw new InterruptedException("Example error message.");
-
+    public ResponseEntity<Response> getServers() {
         //  TODO: Annotations retest - builder alternative working.
         LocalDateTime timeStamp = LocalDateTime.now();
         Map<?, ?> data = Map.of("servers", serverServiceImplementation.serverList(30));

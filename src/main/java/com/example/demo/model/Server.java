@@ -21,7 +21,7 @@ public class Server {
     @Id
     @GeneratedValue(strategy=AUTO)
     private Long serverId;
-    //  Constraint on serverIPAddress- must be filled in.
+    //  Constraint on serverIPAddress: must be filled in.
     @Column(unique=true)
     @NotEmpty(message="IP Address cannot be empty.")
     private String serverIPAddress;
