@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,16 +22,13 @@ public class Client {
     @GeneratedValue(strategy=AUTO)
     private Long clientId;
     //  Constraints- fields must be filled in.
-    @Column(unique=true)
+    //  TODO: implement constraints here to match frontend.
     @NotEmpty(message="Client first name cannot be empty.")
     private String clientFirstName;
-    @Column(unique=true)
     @NotEmpty(message="Client last name cannot be empty.")
     private String clientLastName;
-    @Column(unique=true)
     @NotEmpty(message="Client company cannot be empty.")
     private String clientCompany;
-    @Column(unique=true)
     @NotEmpty(message="Client company URL cannot be empty.")
     private String clientCompanyURL;
     private String clientEmail;
