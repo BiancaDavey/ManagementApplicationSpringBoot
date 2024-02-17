@@ -45,12 +45,12 @@ public class ManagementSystemApplication {
 	@Bean
 	CommandLineRunner run(ClientRepo clientRepo){
 		return args -> {
-			clientRepo.save(new Client(null, "John1", "Smith1", "Google",
+			clientRepo.save(new Client(null, "John", "Smith", "Google",
 					"https://google.com", "johnsmith@gmail.com", "44", "7755666888", ClientStatus.ACTIVE));
-			clientRepo.save(new Client(null, "John2", "Smith2", "Apple",
-					"https://apple.com", "johnsmith@gmail.com", "44", "7755666888", ClientStatus.INACTIVE));
-			clientRepo.save(new Client(null, "John3", "Smith3", "IMB",
-					"https://imb.com", "johnsmith@gmail.com", "44", "7755666888", ClientStatus.ACTIVE));
+			clientRepo.save(new Client(null, "Jane", "Jones", "Apple",
+					"https://apple.com", "janejones@gmail.com", "44", "7755666888", ClientStatus.INACTIVE));
+			clientRepo.save(new Client(null, "Jess", "Wilson", "IMB",
+					"https://imb.com", "jesswilson@gmail.com", "44", "7755666888", ClientStatus.ACTIVE));
 		};
 	}
 	//*/
