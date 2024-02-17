@@ -24,7 +24,7 @@ This application runs with the Angular [frontend](https://github.com/BiancaDavey
 3. Navigate into the `server-app` folder from the [frontend](https://github.com/BiancaDavey/ManagementApplicationAngular) repository.
 4. Start the frontend application: `ng serve`.
 5. Navigate to `http://localhost:4200/` to view the frontend application.
-6. View the database in MySQL by starting MySQL and running `use serverDB;`, `select * from client;`.
+6. View the client table in MySQL by starting MySQL and running `use serverDB;`, `select * from client;`.
 
 ## Application Usage
 
@@ -40,11 +40,11 @@ This application runs with the Angular [frontend](https://github.com/BiancaDavey
 
 ## Frontend Usage Example
 
-* From [frontend](https://github.com/BiancaDavey/ManagementApplicationAngular): Client application
-  [![Client-Application.png](https://i.postimg.cc/kMzpRzTq/Client-Application.png)](https://i.postimg.cc/kMzpRzTq/Client-Application.png)
+* [Frontend](https://github.com/BiancaDavey/ManagementApplicationAngular)- Client application
+  [![Client-Application.png](https://i.postimg.cc/HsMWqt3S/Client-Application.png)](https://postimg.cc/1f9Z6wk6)
 
-* From [frontend](https://github.com/BiancaDavey/ManagementApplicationAngular): Add new client
-  [![Client-Application-Add.png](https://i.postimg.cc/Qx7nQmz5/Client-Application-Add.png)](https://i.postimg.cc/Qx7nQmz5/Client-Application-Add.png)
+* [Frontend](https://github.com/BiancaDavey/ManagementApplicationAngular)- Add new client
+  [![Client-Application-Add.png](https://i.postimg.cc/0yq5PJB9/Client-Application-Add.png)](https://postimg.cc/rKQ29zTH)
 
-* From [frontend](https://github.com/BiancaDavey/ManagementApplicationAngular): Filter clients
-  [![Client-Application-Filter.png](https://i.postimg.cc/J7GFnMcp/Client-Application-Filter.png)](https://i.postimg.cc/J7GFnMcp/Client-Application-Filter.png)
+* [Frontend](https://github.com/BiancaDavey/ManagementApplicationAngular)- Filter clients
+  [![Client-Application-Filter.png](https://i.postimg.cc/DwdvZy9L/Client-Application-Filter.png)](https://postimg.cc/LJ5KQR68)
